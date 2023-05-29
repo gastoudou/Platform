@@ -14,19 +14,19 @@ GS_Sprite::~GS_Sprite() = default;
 void GS_Sprite::destroy()
 {
 	SDL_DestroyTexture( texture );
-	texture = NULL;
+	texture = nullptr;
 	SDL_FreeSurface( surface );
-	surface = NULL;
+	surface = nullptr;
 }
 
-void GS_Sprite::draw( int _x, int _y )
+void GS_Sprite::draw( int _x, int _y, int direction )
 {
 	SDL_Rect position;
 	position.x = _x;
 	position.y = _y;
 	position.w = width;
 	position.h = height;
-	SDL_RenderCopy( renderer, texture, NULL, &position );
+	SDL_RenderCopyEx( renderer, texture, nullptr, &position, 0, nullptr, direction > 0 ? SDL_RendererFlip::SDL_FLIP_NONE : SDL_RendererFlip::SDL_FLIP_HORIZONTAL);
 }
 
 void GS_Sprite::draw_debug( int _x, int _y )
@@ -44,7 +44,7 @@ void GS_Sprite::loadBMP( const char* _path )
 {
 	surface = SDL_LoadBMP( _path );
 	assert( surface );
-	if ( surface != NULL )
+	if ( surface != nullptr )
 	{
 		texture = SDL_CreateTextureFromSurface( renderer, surface );
 		Uint32 format = 0;

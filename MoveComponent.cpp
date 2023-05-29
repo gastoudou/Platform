@@ -12,6 +12,8 @@
 #include "InputComponent.h"
 #include "ScrollSystem.h"
 #include "ScrollDataComponent.h"
+#include "DebugDataComponent.h"
+#include "DebugSystem.h"
 
 /// MoveComponent - implementation
 GS_MoveComponent::GS_MoveComponent( size_t _parent, MvtType _type )
@@ -30,6 +32,13 @@ void GS_MoveComponent::init()
 
 void GS_MoveComponent::update( const float _dt )
 {
+#ifdef _DEBUG
+	if ( auto debugCompo = DebugSystem::getInstance()->getComponent( m_id ) )
+	{
+		debugCompo->m_list_of_colliders.clear();
+	}
+#endif // _DEBUG
+
 	switch ( m_type )
 	{
 		case KEYBOARD:
@@ -55,10 +64,11 @@ void GS_MoveComponent::shutDown()
 
 void GS_MoveComponent::move( Direction _direction )
 {
-	GS_MoveDataComponent* moveCompo = GS_PositionDataSystem::getInstance()->getComponent( m_id );
-	if ( moveCompo )
+	GS_MoveDataComponent* data_move_compo = GS_PositionDataSystem::getInstance()->getComponent( m_id );
+	if ( data_move_compo )
 	{
-		moveCompo->m_velocity.x = static_cast< float >(_direction) * moveCompo->m_speed;
+		data_move_compo->m_velocity.x = static_cast< float >(_direction) * data_move_compo->m_speed;
+		data_move_compo->m_current_direction = _direction;
 	}
 }
 
@@ -80,12 +90,12 @@ void GS_MoveComponent::jump()
 void GS_MoveComponent::updateNone( const float )
 {
 	GS_MoveDataComponent* moveCompo = GS_PositionDataSystem::getInstance()->getComponent( m_id );
-	if ( moveCompo == NULL )
+	if ( moveCompo == nullptr )
 	{
 		return;
 	}
 	GS_ScrollDataComponent* scrollCompo = GS_ScrollSystem::getInstance()->getComponent( m_id );
-	if ( scrollCompo != NULL )
+	if ( scrollCompo != nullptr )
 	{
 		moveCompo->m_position.x = moveCompo->m_initPosition.x - GS_Game::getInstance()->getScroll().x;
 	}
@@ -94,13 +104,13 @@ void GS_MoveComponent::updateNone( const float )
 void GS_MoveComponent::updateProjectile( const float _dt )
 {
 	GS_MoveDataComponent* moveCompo = GS_PositionDataSystem::getInstance()->getComponent( m_id );
-	if ( moveCompo == NULL )
+	if ( moveCompo == nullptr )
 	{
 		return;
 	}
 	GS_Vector2 newPosition = moveCompo->m_position + moveCompo->m_direction * moveCompo->m_speed * _dt;
 	GS_ScrollDataComponent* scrollCompo = GS_ScrollSystem::getInstance()->getComponent( m_id );
-	if ( scrollCompo != NULL )
+	if ( scrollCompo != nullptr )
 	{
 		newPosition.x -= GS_Game::getInstance()->getScroll().x - scrollCompo->m_lastScrollOnX;
 		scrollCompo->m_lastScrollOnX = GS_Game::getInstance()->getScroll().x;
@@ -115,7 +125,7 @@ void GS_MoveComponent::updateProjectile( const float _dt )
 void GS_MoveComponent::updateSlider( const float _dt )
 {
 	GS_MoveDataComponent* moveCompo = GS_PositionDataSystem::getInstance()->getComponent( m_id );
-	if ( moveCompo == NULL )
+	if ( moveCompo == nullptr )
 	{
 		return;
 	}
@@ -124,7 +134,7 @@ void GS_MoveComponent::updateSlider( const float _dt )
 		moveCompo->m_direction = GS_Vector2( 1.0f, 0.0f );
 	}
 	GS_ScrollDataComponent* scrollCompo = GS_ScrollSystem::getInstance()->getComponent( m_id );
-	if ( scrollCompo != NULL )
+	if ( scrollCompo != nullptr )
 	{
 		GS_Vector2 nextPosition = moveCompo->m_position + moveCompo->m_direction * moveCompo->m_speed * _dt;
 		nextPosition.x += scrollCompo->m_lastScrollOnX;
@@ -159,7 +169,7 @@ void GS_MoveComponent::updateSlider( const float _dt )
 void GS_MoveComponent::updateKeyboard( const float _dt )
 {
 	GS_MoveDataComponent* moveCompo = GS_PositionDataSystem::getInstance()->getComponent( m_id );
-	if ( moveCompo == NULL )
+	if ( moveCompo == nullptr )
 	{
 		return;
 	}
@@ -340,6 +350,17 @@ bool GS_MoveComponent::checkCollisionsWith( const GS_AABB& _entity, const GS_Vec
 				{
 					GS_Game::getInstance()->setLevelClear(); // end of level
 				}
+
+#ifdef _DEBUG
+				if( auto debugCompo = DebugSystem::getInstance()->getComponent( m_id ) )
+				{
+					auto itSearch = std::find( debugCompo->m_list_of_colliders.cbegin(), debugCompo->m_list_of_colliders.cend(), i );
+					if ( itSearch == debugCompo->m_list_of_colliders.cend() )
+					{
+						debugCompo->m_list_of_colliders.push_back( i );
+					}
+				}
+#endif // _DEBUG
 
 				return true;
 			}

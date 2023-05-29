@@ -6,6 +6,7 @@
 #include "ShootSystem.h"
 #include "MovingSystem.h"
 #include "RenderSystem.h"
+#include "DebugDrawSystem.h"
 #include "JumpDataSystem.h"
 #include "PositionDataSystem.h"
 
@@ -48,6 +49,9 @@ void GS_EntitySystem::process( const float _dt )
 	GS_ShootSystem::getInstance()->process( _dt );
 	GS_MovingSystem::getInstance()->process( _dt );
 	GS_RenderSystem::getInstance()->process( _dt );
+#ifdef _DEBUG
+	DebugDrawSystem::getInstance()->process( _dt );
+#endif // _DEBUG
 }
 
 void GS_EntitySystem::shutDown()
@@ -66,6 +70,9 @@ void GS_EntitySystem::shutDown()
 	GS_ShootSystem::getInstance()->shutDown();
 	GS_MovingSystem::getInstance()->shutDown();
 	GS_RenderSystem::getInstance()->shutDown();
+#ifdef _DEBUG
+	DebugDrawSystem::getInstance()->shutDown();
+#endif // _DEBUG
 }
 
 size_t GS_EntitySystem::registerEntity()

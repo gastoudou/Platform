@@ -11,11 +11,10 @@ GS_ResourceManager::GS_ResourceManager()
 
 GS_ResourceManager::~GS_ResourceManager()
 {
-	std::vector< GS_Sprite* >::iterator it = m_sprites.begin();
-	const std::vector< GS_Sprite* >::const_iterator itEnd = m_sprites.end();
-	for ( ; it != itEnd; ++it )
+	for ( auto sprite : m_sprites )
 	{
-		(*it)->destroy();
+		sprite->destroy();
+		delete sprite;
 	}
 }
 

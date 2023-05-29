@@ -18,13 +18,6 @@ enum MvtType : size_t
 	NONE
 };
 
-// direction of the input
-enum Direction : int
-{
-	LEFT = -1,
-	RIGHT = 1
-};
-
 /// This class is used to manage inputs info got from keyState function from NERDGame
 class GS_MoveComponent : public GS_LogicalComponent
 {

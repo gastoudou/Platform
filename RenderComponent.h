@@ -6,14 +6,14 @@
 
 /// RenderComponent
 /// This class represents the rendering component. Used to display data on screen.
-class GS_RenderComponent final : public GS_LogicalComponent
+class GS_RenderComponent : public GS_LogicalComponent
 {
 public:
 	GS_RenderComponent( size_t );
 	virtual ~GS_RenderComponent();
 
 	void init() override;
-	void update( const float )  override; // render here
+	void update( const float ) override; // render here
 	void shutDown() override;
 
 private:
@@ -22,4 +22,4 @@ private:
 	GS_RenderComponent& operator=( const GS_RenderComponent& ) = delete;
 };
 
-#endif
+#endif // __RENDER_COMPONENT_H__

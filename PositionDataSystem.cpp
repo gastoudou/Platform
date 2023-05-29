@@ -26,7 +26,7 @@ GS_MoveDataComponent* GS_PositionDataSystem::getComponent( size_t _id ) const
 	const auto itSearch = m_indexTable.find( _id );
 	if ( itSearch != m_indexTable.end() )
 	{
-		return static_cast< GS_MoveDataComponent* >( m_components[ (*itSearch).second ] );
+		return static_cast< GS_MoveDataComponent* >(m_components[ (*itSearch).second ]);
 	}
 	return nullptr;
 }

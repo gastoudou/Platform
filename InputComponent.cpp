@@ -64,7 +64,7 @@ void GS_InputComponent::update( const float )
 	}
 
 	int joyPadBtnJmp = GS_Game::getInstance()->getJoypadBtn( 0 );
-	if ( joyPadBtnJmp == SDL_PRESSED && m_UpKeyRelease )
+	if ( joyPadBtnJmp == SDL_PRESSED && m_UpJoyRelease )
 	{
 		GS_MovingSystem::getInstance()->setJump( m_id );
 		m_UpJoyRelease = false;

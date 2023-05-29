@@ -35,7 +35,8 @@ void GS_RenderComponent::update( const float )
 				auto x = static_cast< int >(moveCompo->m_position.x);
 				auto y = static_cast< int >(moveCompo->m_position.y);
 
-				sprite->draw( x, y );
+				GS_MoveDataComponent* data_move_compo = GS_PositionDataSystem::getInstance()->getComponent( m_id );
+				sprite->draw( x, y, data_move_compo ? data_move_compo->m_current_direction : RIGHT );
 #ifdef _DEBUG
 				sprite->draw_debug( x, y );
 #endif // _DEBUG

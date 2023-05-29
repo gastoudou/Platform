@@ -6,6 +6,7 @@
 #include "SDL_image.h"
 #include "SDL_joystick.h"
 #include "NERDSprite.h"
+#include "DebugDrawSystem.h"
 
 SDL_Joystick* gameController = nullptr;
 
@@ -31,6 +32,11 @@ bool NERDGame::initialize( int _w, int _h )
 	{
 		gameController = SDL_JoystickOpen( 0 );
 	}
+
+#ifdef _DEBUG
+	DebugDrawSystem::getInstance()->init( renderer );
+#endif // _DEBUG
+
 
 	return true;
 }

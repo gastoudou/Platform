@@ -5,14 +5,8 @@
 #include "SpriteDataSystem.h"
 
 /// RenderSystem - implementation
-GS_RenderSystem::GS_RenderSystem()
-{
-}
-
-GS_RenderSystem::~GS_RenderSystem()
-{
-	shutDown();
-}
+GS_RenderSystem::GS_RenderSystem() = default;
+GS_RenderSystem::~GS_RenderSystem() = default;
 
 void GS_RenderSystem::addComponent( size_t _id, const char* _path )
 {

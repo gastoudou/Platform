@@ -14,12 +14,19 @@
 #include "JumpDataSystem.h"
 #include "ShootSystem.h"
 #include "ScrollSystem.h"
+#include "DebugDrawSystem.h"
+#include "DebugSystem.h"
 
 /// Game - implementation
 GS_Game::GS_Game() = default;
 
 GS_Game::~GS_Game()
 {
+	for ( auto sprite : m_sprites )
+	{
+		sprite->destroy();
+		delete sprite;
+	}
 	delete m_game;
 }
 
@@ -72,8 +79,8 @@ bool GS_Game::update()
 {
 	if ( m_game->update() )
 	{
-		GS_EntitySystem::getInstance()->process( m_game->getElapsedTime() );
 		renderLevel();
+		GS_EntitySystem::getInstance()->process( m_game->getElapsedTime() );
 
 		if ( m_game->getKeyState() & NERDGame::NERD_KEY_SPACE )
 		{
@@ -264,7 +271,7 @@ void GS_Game::renderLevel()
 				auto x = static_cast< int >(i * k_SPRITE_WIDTH - m_scroll.x);
 				auto y = static_cast< int >(j * k_SPRITE_HEIGHT - m_scroll.y);
 
-				m_sprites[ id - 1 ]->draw( x, y );
+				m_sprites[ id - 1 ]->draw( x, y, 1 );
 #ifdef _DEBUG
 				m_sprites[ id - 1 ]->draw_debug( x, y );
 #endif // _DEBUG
@@ -316,4 +323,8 @@ void GS_Game::createPlayer( const int _idCell ) const
 	GS_InputSystem::getInstance()->addComponent( idEntity );
 	GS_MovingSystem::getInstance()->addComponent( idEntity, KEYBOARD );
 	GS_JumpDataSystem::getInstance()->addComponent( idEntity );
+#ifdef _DEBUG
+	DebugSystem::getInstance()->addComponent( idEntity );
+	DebugDrawSystem::getInstance()->addComponent( idEntity );
+#endif // _DEBUG
 }

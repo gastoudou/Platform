@@ -8,6 +8,11 @@ class GS_LogicalComponent;
 class GS_System
 {
 public:
+	virtual ~GS_System()
+	{
+		shutDown();
+	}
+
 	void process( const float _dt );
 	void shutDown();
 

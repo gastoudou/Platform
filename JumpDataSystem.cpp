@@ -21,5 +21,5 @@ GS_JumpDataComponent* GS_JumpDataSystem::getComponent( size_t _id ) const
 	{
 		return static_cast< GS_JumpDataComponent* >( m_components[ (*itSearch).second ] );
 	}
-	return NULL;
+	return nullptr;
 }

@@ -3,6 +3,13 @@
 
 #include "Component.h"
 
+GS_Store::GS_Store() = default;
+
+GS_Store::~GS_Store()
+{
+	shutDown();
+}
+
 void GS_Store::shutDown()
 {
 	if ( !m_components.empty() )

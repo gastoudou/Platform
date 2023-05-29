@@ -8,6 +8,8 @@ class GS_DataComponent;
 class GS_Store
 {
 public:
+	GS_Store();
+	virtual ~GS_Store();
 	void shutDown();
 
 protected:

@@ -14,8 +14,8 @@ public:
 	~GS_Sprite();
 
 	void destroy();
-	void draw( int _x, int _y );
-	void draw_debug( int _x, int _y ); // jsut shadow draw
+	void draw( int _x, int _y, int direction );
+	void draw_debug( int _x, int _y ); // just shadow draw
 	void loadBMP( const char* _path );
 
 private:

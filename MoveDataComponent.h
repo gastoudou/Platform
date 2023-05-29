@@ -17,6 +17,7 @@ public:
 	GS_Vector2 m_direction;
 	GS_Vector2 m_velocity;
 	float m_speed = 0.0f;
+	Direction m_current_direction = RIGHT;
 
 private:
 	GS_MoveDataComponent();

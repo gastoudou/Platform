@@ -48,7 +48,7 @@ void GS_ShootComponent::initTimers()
 void GS_ShootComponent::createNewRocket()
 {
 	GS_MoveDataComponent* moveCompo = GS_PositionDataSystem::getInstance()->getComponent( m_id );
-	if ( moveCompo == NULL )
+	if ( moveCompo == nullptr )
 	{
 		return;
 	}
