@@ -55,7 +55,7 @@ void GS_ShootComponent::createNewRocket()
 	/*char buffer[ 256 ];
 	GetPrivateProfileString( "Move", "SpeedRocket", "150", buffer, 256, ".\\data\\config.ini");
 	const float speed = static_cast< float >( atof( buffer ) );*/
-	const float speed = 175.0f;
+	const float speed = 250.0f;
 
 	size_t newId = GS_EntitySystem::getInstance()->registerEntity();
 	GS_Vector2 direction = GS_Vector2( rand() % 10 > 5 ? -1.0f : 1.0f, 0.0f );
