@@ -28,6 +28,7 @@ private:
 	DebugDrawComponent& operator=( const DebugDrawComponent& ) = delete;
 
 	SDL_Renderer* m_renderer;
+	TTF_Font* font = nullptr;
 };
 
 #endif // _DEBUG

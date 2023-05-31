@@ -7,9 +7,6 @@
 #include "DebugDataComponent.h"
 #include "Game.h"
 
-#include <SDL.h>
-#include <SDL_image.h>
-
 DebugDrawComponent::DebugDrawComponent( size_t _parent, SDL_Renderer* _renderer )
 	: GS_LogicalComponent( _parent )
 	, m_renderer( _renderer )
@@ -21,6 +18,7 @@ DebugDrawComponent::~DebugDrawComponent() = default;
 
 void DebugDrawComponent::init()
 {
+	font = TTF_OpenFont( "data//arial.ttf", 25 );
 }
 
 void DebugDrawComponent::update( const float )
@@ -44,11 +42,27 @@ void DebugDrawComponent::update( const float )
 			position.h = k_SPRITE_HEIGHT;
 			SDL_RenderFillRect( m_renderer, &position );
 		}
+
+		SDL_Color color = { 255, 255, 255 };
+		SDL_Surface* surface = TTF_RenderText_Solid( font,
+			debugCompo->m_debug_text.c_str(), color);
+		SDL_Texture* texture = SDL_CreateTextureFromSurface( m_renderer, surface );
+
+		int texW = 0;
+		int texH = 0;
+		SDL_QueryTexture( texture, NULL, NULL, &texW, &texH );
+		SDL_Rect dstrect = { 0, 0, texW, texH };
+
+		SDL_RenderCopy( m_renderer, texture, NULL, &dstrect );
+
+		SDL_DestroyTexture( texture );
+		SDL_FreeSurface( surface );
 	}
 }
 
 void DebugDrawComponent::shutDown()
 {
+	// TTF_CloseFont( font );
 }
 
 #endif // _DEBUG

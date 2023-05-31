@@ -17,6 +17,11 @@
 #include "vld.h"
 #endif // _DEBUG
 
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_ttf.h>
+
+
 // static values for the game
 static const size_t k_LEVEL_WIDTH = 25u;
 static const size_t k_LEVEL_HEIGHT = 15u;

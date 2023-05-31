@@ -185,27 +185,31 @@ void GS_MoveComponent::updateKeyboard( const float _dt )
 	bool canMoveOnY = true;
 
 	// jump management
-	GS_JumpDataComponent* jumpCompo = GS_JumpDataSystem::getInstance()->getComponent(m_id);
+	GS_JumpDataComponent* jumpCompo = GS_JumpDataSystem::getInstance()->getComponent( m_id );
 
-	if ( jumpCompo && jumpCompo->m_isJumping )
+	if ( jumpCompo )
 	{
-		jumpCompo->m_jumpForce += jumpCompo->m_GRAVITY;
-		moveCompo->m_velocity.y -= jumpCompo->m_jumpForce;
-		if ( jumpCompo->m_jumpForce < 0.0f )
+		if ( jumpCompo->m_isJumping )
 		{
-			jumpCompo->m_isJumping = false;
-			jumpCompo->m_isFalling = true;
-			jumpCompo->m_isTouchingGround = false;
+			jumpCompo->m_jumpForce += jumpCompo->m_GRAVITY;
+			moveCompo->m_velocity.y -= jumpCompo->m_jumpForce;
+
+			if ( jumpCompo->m_jumpForce < 0.0f )
+			{
+				jumpCompo->m_isJumping = false;
+				jumpCompo->m_isFalling = true;
+				jumpCompo->m_isTouchingGround = false;
+			}
 		}
-	}
-	else if ( jumpCompo && jumpCompo->m_isFalling )
-	{
-		jumpCompo->m_jumpForce += jumpCompo->m_GRAVITY;
-		moveCompo->m_velocity.y -= jumpCompo->m_jumpForce;
-	}
-	else if ( jumpCompo && !jumpCompo->m_isFalling && !jumpCompo->m_isJumping && !jumpCompo->m_isTouchingGround )
-	{
-		jumpCompo->m_isFalling = true;
+		else if ( jumpCompo->m_isFalling )
+		{
+			jumpCompo->m_jumpForce += jumpCompo->m_GRAVITY;
+			moveCompo->m_velocity.y -= jumpCompo->m_jumpForce;
+		}
+		else if ( !jumpCompo->m_isFalling && !jumpCompo->m_isJumping && !jumpCompo->m_isTouchingGround )
+		{
+			jumpCompo->m_isFalling = true;
+		}
 	}
 
 
@@ -327,6 +331,17 @@ void GS_MoveComponent::updateKeyboard( const float _dt )
 		}
 		moveCompo->m_velocity.y = 0.0f;
 	}
+
+#ifdef _DEBUG
+	if ( auto debugCompo = DebugSystem::getInstance()->getComponent( m_id ) )
+	{
+		debugCompo->m_debug_text.clear();
+
+		debugCompo->m_debug_text += canMoveOnX ? " can move on X" : "";
+		debugCompo->m_debug_text += canMoveOnY ? " can move on Y" : "";
+	}
+#endif // _DEBUG
+
 }
 
 bool GS_MoveComponent::checkCollisionsWith( const GS_AABB& _entity, const GS_Vector2& _potentialScroll /*= GS_Vector2()*/ ) const
@@ -352,7 +367,7 @@ bool GS_MoveComponent::checkCollisionsWith( const GS_AABB& _entity, const GS_Vec
 				}
 
 #ifdef _DEBUG
-				if( auto debugCompo = DebugSystem::getInstance()->getComponent( m_id ) )
+				if ( auto debugCompo = DebugSystem::getInstance()->getComponent( m_id ) )
 				{
 					auto itSearch = std::find( debugCompo->m_list_of_colliders.cbegin(), debugCompo->m_list_of_colliders.cend(), i );
 					if ( itSearch == debugCompo->m_list_of_colliders.cend() )

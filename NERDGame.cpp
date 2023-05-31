@@ -37,7 +37,6 @@ bool NERDGame::initialize( int _w, int _h )
 	DebugDrawSystem::getInstance()->init( renderer );
 #endif // _DEBUG
 
-
 	return true;
 }
 

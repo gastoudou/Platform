@@ -37,8 +37,8 @@ private:
 	NERDGame( const NERDGame& );
 	NERDGame& operator=( const NERDGame& ) = delete;
 
-	SDL_Window* window;
-	SDL_Renderer* renderer;
+	SDL_Window* window = nullptr;
+	SDL_Renderer* renderer = nullptr;
 
 	int joypads[ 1 ][ 2 ];
 	int buttons[ 1 ][ 8 ];

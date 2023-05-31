@@ -15,12 +15,12 @@ public:
 	virtual ~DebugDataComponent();
 
 	std::vector< size_t > m_list_of_colliders;
+	std::string m_debug_text;
 
 private:
 	DebugDataComponent() = delete;
 	DebugDataComponent( const DebugDataComponent& ) = delete;
 	DebugDataComponent& operator=( const DebugDataComponent& ) = delete;
-
 };
 
 #endif // _DEBUG

@@ -13,10 +13,11 @@ public:
 	virtual ~GS_JumpDataComponent();
 
 	// jump data
-	float m_JUMP_FORCE_INIT = 750.0f;
 #ifdef _DEBUG
+	float m_JUMP_FORCE_INIT = 550.0f;
 	float m_GRAVITY = -0.5f;
 #else
+	float m_JUMP_FORCE_INIT = 750.0f;
 	float m_GRAVITY = -0.25f;
 #endif // _DEBUG
 	float m_jumpForce = 0.0f;
