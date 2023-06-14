@@ -16,6 +16,10 @@ int main( int, char** )
 
 	while ( game->isRunning() )
 	{
+#ifdef _DEBUG
+		OPTICK_FRAME( "MainThread" );
+#endif // _DEBUG
+
 		game->update();
 		if ( game->shouldRestart() )
 		{

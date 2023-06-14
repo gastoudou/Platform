@@ -1,0 +1,491 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.36.32532.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///f:/github/platform/platform/movedatacomponent.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "bdf5866bd154fc82fecf47f9012be3c680fb74e15ca7954fbc047944ddbec729"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/github/platform/platform/stdafx.h"
+          },
+          "hashes": {
+            "sha-256": "2b4794ac397d7cbf43c6dff10261732e1a5db34b473d88626c23eeece786dbaf"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/github/platform/platform/vector2.h"
+          },
+          "hashes": {
+            "sha-256": "0857a8b5ff0faf061ff598061da3a793f5a3ec99efe39b3ee36c3434fd6506af"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/github/platform/platform/aabb.h"
+          },
+          "hashes": {
+            "sha-256": "481f7b43ffac0d43e907b552cc173a9b2e27ae4912c0e0df563262035310906a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/program files (x86)/visual leak detector/include/vld.h"
+          },
+          "hashes": {
+            "sha-256": "eb6e39225ae65abb7db13f37e31ea5cf1517eb3bfc900fd1cc588e03a1039d18"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/program files (x86)/visual leak detector/include/vld_def.h"
+          },
+          "hashes": {
+            "sha-256": "edb2f9db9bf456cc4fb842c3f7279ef2a30ead5313b62b74a4f0c2983e23e47d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl.h"
+          },
+          "hashes": {
+            "sha-256": "34b801d083d618a7de602b54a8002e2bbd00c6b3460f921409d461db0334f955"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_main.h"
+          },
+          "hashes": {
+            "sha-256": "ab05d13a6a57a6930fa1d7ad506134b3fec71e6c1fbb7b5a2d47a28aef803e4d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_stdinc.h"
+          },
+          "hashes": {
+            "sha-256": "24c5d1124a5a28c773878220673487ca9e6f6c869adc88ef8058df5330cde98e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_config.h"
+          },
+          "hashes": {
+            "sha-256": "86a1689a2ee033f2d7463b9169ee5ddc3fd228b04a9ab3c0a7a4e05be39d9158"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_platform.h"
+          },
+          "hashes": {
+            "sha-256": "47a303749d9951df4518a45e19d244e98c87c2a7336fdf632bdfc80d6e7d0262"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/begin_code.h"
+          },
+          "hashes": {
+            "sha-256": "250ef5cd3c00a77133236d9a04fdf0f3461811cc4d05117cff40e4a8edfda03a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/close_code.h"
+          },
+          "hashes": {
+            "sha-256": "a05d08d1d7100ef2dcb84220ab1f701108aea8747928ba2ad7384bfc02b981e8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_config_windows.h"
+          },
+          "hashes": {
+            "sha-256": "e883dcb78a26924c7b15cf5b480a69e110aa3896d1658380020bd901b08cd963"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_assert.h"
+          },
+          "hashes": {
+            "sha-256": "b6e4b5f02ec0d756a4a87f4c593d165826faabb91c17ded48b9385c0db5217f9"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_atomic.h"
+          },
+          "hashes": {
+            "sha-256": "9fdac603ccd71716ac527374cad80b2d6996d820c2b4a05e18965c7c1fa77d17"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_audio.h"
+          },
+          "hashes": {
+            "sha-256": "dfca1028223e329c224a076a83f61405207a71fce95d79eabf8a0f1127170c33"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_error.h"
+          },
+          "hashes": {
+            "sha-256": "7abae8b28558083e3952f415ccbe0b99fab8782420f766bac54674eb60c610be"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_endian.h"
+          },
+          "hashes": {
+            "sha-256": "efb86fd1022a96b6bff2071017cd5a0303f6d7f64000d2a221a25157540af269"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_mutex.h"
+          },
+          "hashes": {
+            "sha-256": "58a53c83b6d50f72a940482f5ee506acf706e61820f8bc10060ccb4027925538"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_thread.h"
+          },
+          "hashes": {
+            "sha-256": "6fb683847f56e7b9f29fdbbec57ae5036909563f75c0500069f50fd3b9e9858d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_rwops.h"
+          },
+          "hashes": {
+            "sha-256": "29ec25675e0527a09f2e377b1037352a5552894848b763fd777a7654426e5140"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_clipboard.h"
+          },
+          "hashes": {
+            "sha-256": "fabd0b3971c645fd90f7e164a9153a8befb5cc4cec139b165f1c4c1abb12c8a9"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_cpuinfo.h"
+          },
+          "hashes": {
+            "sha-256": "d1e45f1001fe57f74bfba1872a691bcdc99e47d9c849f9a30467283a7f09f49f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_events.h"
+          },
+          "hashes": {
+            "sha-256": "233d9fb9c97305ba432daf83abf12af0cba989a712eaf701d805ab6efcd68a73"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_video.h"
+          },
+          "hashes": {
+            "sha-256": "c819d35f9639dcf5d31edb505f760686494119073fb94ccbda7b479e3c4ce031"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_pixels.h"
+          },
+          "hashes": {
+            "sha-256": "7e97330cce33ed52c95ba14cbd14f2827ca93913dd936abcf52d6409b4b67e93"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_rect.h"
+          },
+          "hashes": {
+            "sha-256": "742b197047dd99caf546e3b271602d1e79d0b3905693c970d146e7bff694c06e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_surface.h"
+          },
+          "hashes": {
+            "sha-256": "233ac55b36544cc8ea52608de5f08f390b89ba11393f434c516b6a7c72465b3e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_blendmode.h"
+          },
+          "hashes": {
+            "sha-256": "77ff01d222e1e1a15ea1a3c416a4380bac782129432422abc9b68ab870891cbe"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_keyboard.h"
+          },
+          "hashes": {
+            "sha-256": "b696461075374ca0a8cdc61fe0c03d800e5b5cd3d2c71f6baaa05a3edb60afee"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_keycode.h"
+          },
+          "hashes": {
+            "sha-256": "4a931c946f9ea663d089b8b77cdb107b594153164f24e3aee037d08e94d9620c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_scancode.h"
+          },
+          "hashes": {
+            "sha-256": "e556990bd21f32e360cf787a3899fd43f20607ff9ca729b122b8e496e096ccea"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_mouse.h"
+          },
+          "hashes": {
+            "sha-256": "805307e9b073bc909f7fc17b14c5a53faa3a4f27459a25c4bb475a5a9d7aeb09"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_joystick.h"
+          },
+          "hashes": {
+            "sha-256": "6d4c940daaf24a4dfbb5f06be6d9fead85486e8350f1a49702e8f3e7917a1d9a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_gamecontroller.h"
+          },
+          "hashes": {
+            "sha-256": "e5c9b23dca0fa46fbd6490aae27d46b0a8ab325c14d4d362d1d2c62fba87eaa2"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_quit.h"
+          },
+          "hashes": {
+            "sha-256": "98dfd3ecf8c756d55c7befe6eed216207f29f25ca52d63ee240902b1b12f8e18"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_gesture.h"
+          },
+          "hashes": {
+            "sha-256": "ff9fad390590f6b6a8a6a042131947f4294003f7d501f10122b77f5a5a5aa881"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_touch.h"
+          },
+          "hashes": {
+            "sha-256": "f6643657ddfb0c03ba3a371014c6e816b9c9122a9d93edae1c1cddbcc6149ddd"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_filesystem.h"
+          },
+          "hashes": {
+            "sha-256": "9799c1bcc82500814459fdf9eca33243e13b72be06a8ef573707af034e3e5664"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_haptic.h"
+          },
+          "hashes": {
+            "sha-256": "f1011d7a40d5af970bb686d4aac8f5f53b603aca4694fff6be5542c752fec5cb"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_hints.h"
+          },
+          "hashes": {
+            "sha-256": "e95d650949b0216380aaad8e436dc9d7f5617dbcf00e795064f593961a237dae"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_loadso.h"
+          },
+          "hashes": {
+            "sha-256": "620dcead9a45d7bb82ebd4f0a6b3f2ae99f7facbb760069a035853357007c4bc"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_log.h"
+          },
+          "hashes": {
+            "sha-256": "8f8177e23be035311c1d04283db041ba08b844a40b84633ec789dd5ddb437341"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_messagebox.h"
+          },
+          "hashes": {
+            "sha-256": "0d2b834bf9c0cdf122da43b4e83129c512e3e55d7efa9d8361803d3a8bbc7b04"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_power.h"
+          },
+          "hashes": {
+            "sha-256": "5642646e9fb959de166037a6262bbc47f7a6747e0f65234fc1ea0f9b34647f13"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_render.h"
+          },
+          "hashes": {
+            "sha-256": "11888a3d7e70448716902c913a54f9f70ba20eea59eb2a74f98b0358eae1b674"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_sensor.h"
+          },
+          "hashes": {
+            "sha-256": "13f7748484369e7ebd0abcaffa74f61ebf899966b61139ec06013f269277eae7"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_shape.h"
+          },
+          "hashes": {
+            "sha-256": "2d5c129df641b8a2f56d6db3cb8aedd2f44f987dbf6717e63f4c41f692d510e1"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_system.h"
+          },
+          "hashes": {
+            "sha-256": "f2645115b57cd050c014c8497090412ee30e13345995a2bd05a14d2ef6997454"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_timer.h"
+          },
+          "hashes": {
+            "sha-256": "e507bdda75645271dbc606c6c31932825bd529a8e17e0561c4f7a2e9d86be1cd"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2-2.0.9/include/sdl_version.h"
+          },
+          "hashes": {
+            "sha-256": "a1fe72c4f1ed745742f09c0507b50b8b5f795ace0a6e233597f5a307c6363acf"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2_image-2.0.3/include/sdl_image.h"
+          },
+          "hashes": {
+            "sha-256": "1f26b296ae9dcfb1b063cf1958adc3ae07b2074e14cb0a0859eeac536112a125"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/sdl2_ttf/include/sdl_ttf.h"
+          },
+          "hashes": {
+            "sha-256": "03da4cf03fffe259c7626174891f12941468ba3392c6df5fd1b39a240326a64a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/github/platform/platform/movedatacomponent.h"
+          },
+          "hashes": {
+            "sha-256": "89a3dfa07e6cf1f4fb550630044693c882234047cd549c0feec8cb4c402c2027"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/github/platform/platform/component.h"
+          },
+          "hashes": {
+            "sha-256": "8d7cd7555a080577f17a80c68ef6079dbf456839a7547fdd2830c77a56b805cd"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/github/platform/platform/game.h"
+          },
+          "hashes": {
+            "sha-256": "ad40bd6b8a3797d9ef1ddaf549d48df1cb8ac175a642b523c3244a8335fd5a31"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/github/platform/platform/singleton.h"
+          },
+          "hashes": {
+            "sha-256": "30c71d731169f28c5b15f7bcb81a1855f8c3b6f03f5bc78254cfa192c2040bf5"
+          }
+        }
+      ]
+    }
+  ]
+}

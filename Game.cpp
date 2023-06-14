@@ -77,6 +77,10 @@ void GS_Game::loadNewLevel()
 
 bool GS_Game::update()
 {
+#ifdef _DEBUG
+	OPTICK_EVENT();
+#endif // _DEBUG
+
 	if ( m_game->update() )
 	{
 		renderLevel();
@@ -183,6 +187,10 @@ size_t GS_Game::getTile( size_t _id ) const
 
 void GS_Game::loadLevel()
 {
+#ifdef _DEBUG
+	OPTICK_EVENT();
+#endif // _DEBUG
+
 	std::fstream file;
 	char num[ 2 ] = " ";
 	sprintf_s( num, "%zu", m_idLevel );
@@ -261,6 +269,10 @@ void GS_Game::reloadLevel()
 
 void GS_Game::renderLevel()
 {
+#ifdef _DEBUG
+	OPTICK_EVENT();
+#endif // _DEBUG
+
 	for ( size_t i = 0u; i < k_LEVEL_WIDTH; ++i )
 	{
 		for ( size_t j = 0u; j < k_LEVEL_HEIGHT; ++j )

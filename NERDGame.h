@@ -40,10 +40,10 @@ private:
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 
-	int joypads[ 1 ][ 2 ];
-	int buttons[ 1 ][ 8 ];
-	int keyState;
-	int lastTick;
+	int joypads[ 1 ][ 2 ] = { 0 };
+	int buttons[ 1 ][ 8 ] = { 0 };
+	int keyState = 0;
+	int lastTick = 0;
 };
 
 #endif // NERD_GAME_H

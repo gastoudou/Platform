@@ -5,6 +5,10 @@
 
 void GS_System::process( const float _dt )
 {
+#ifdef _DEBUG
+	OPTICK_EVENT();
+#endif // _DEBUG
+
 	auto it = m_components.begin();
 	const auto itEnd = m_components.end();
 	for ( ; it != itEnd; ++it )

@@ -67,7 +67,7 @@ void GS_MoveComponent::move( Direction _direction )
 	GS_MoveDataComponent* data_move_compo = GS_PositionDataSystem::getInstance()->getComponent( m_id );
 	if ( data_move_compo )
 	{
-		data_move_compo->m_velocity.x = static_cast< float >(_direction) * data_move_compo->m_speed;
+		data_move_compo->m_velocity.x = static_cast< float >( _direction ) * data_move_compo->m_speed;
 		data_move_compo->m_current_direction = _direction;
 	}
 }
@@ -140,16 +140,16 @@ void GS_MoveComponent::updateSlider( const float _dt )
 		nextPosition.x += scrollCompo->m_lastScrollOnX;
 
 		// get cells around the entity
-		int idCellLeft = (static_cast< int >(nextPosition.x) / k_SPRITE_WIDTH) + (static_cast< int >(nextPosition.y) / k_SPRITE_HEIGHT) * k_LEVEL_WIDTH + 1;
-		int idCellRight = (static_cast< int >(moveCompo->m_position.x) / k_SPRITE_WIDTH) + (static_cast< int >(moveCompo->m_position.y) / k_SPRITE_HEIGHT) * k_LEVEL_WIDTH - 1;
-		int idCellUnder = (static_cast< int >(nextPosition.x) / k_SPRITE_WIDTH) + (static_cast< int >(nextPosition.y) / k_SPRITE_HEIGHT) * k_LEVEL_WIDTH;
+		int idCellLeft = ( static_cast< int >( nextPosition.x ) / k_SPRITE_WIDTH ) + ( static_cast< int >( nextPosition.y ) / k_SPRITE_HEIGHT ) * k_LEVEL_WIDTH + 1;
+		int idCellRight = ( static_cast< int >( moveCompo->m_position.x ) / k_SPRITE_WIDTH ) + ( static_cast< int >( moveCompo->m_position.y ) / k_SPRITE_HEIGHT ) * k_LEVEL_WIDTH - 1;
+		int idCellUnder = ( static_cast< int >( nextPosition.x ) / k_SPRITE_WIDTH ) + ( static_cast< int >( nextPosition.y ) / k_SPRITE_HEIGHT ) * k_LEVEL_WIDTH;
 
 		// check collisions
 		size_t typeCellLeft = GS_Game::getInstance()->getTile( idCellLeft );
 		size_t typeCellRight = GS_Game::getInstance()->getTile( idCellRight );
 		size_t typeCellUnder = moveCompo->m_direction.x < 0.0f ?
 			GS_Game::getInstance()->getTile( idCellUnder + k_LEVEL_WIDTH ) :
-			GS_Game::getInstance()->getTile( idCellUnder + k_LEVEL_WIDTH + static_cast< int >(moveCompo->m_direction.x) );
+			GS_Game::getInstance()->getTile( idCellUnder + k_LEVEL_WIDTH + static_cast< int >( moveCompo->m_direction.x ) );
 
 		// if there's collision, change direction
 		if ( typeCellLeft != 0 || typeCellRight != 0 || typeCellUnder == 0 )
@@ -226,21 +226,6 @@ void GS_MoveComponent::updateKeyboard( const float _dt )
 	{
 		moveCompo->m_velocity.x = 0.0f;
 	}
-	if ( moveCompo->m_velocity.x > 0.0f
-		&& moveCompo->m_position.x + moveCompo->m_velocity.x > 250.0f
-		&& (GS_Game::getInstance()->getScroll().x + k_SCREEN_WIDTH * k_SPRITE_WIDTH < k_LEVEL_WIDTH * k_SPRITE_WIDTH) )
-	{
-		potentialScroll.x += moveCompo->m_velocity.x;
-		moveCompo->m_velocity.x = 0.0f;
-	}
-	else if ( moveCompo->m_velocity.x < 0.0f
-		&& GS_Game::getInstance()->getScroll().x > 0.0f
-		&& (moveCompo->m_position.x + moveCompo->m_velocity.x) < (k_SCREEN_WIDTH * k_SPRITE_WIDTH - 250.0f)
-		&& (moveCompo->m_position.x + moveCompo->m_velocity.x + k_SPRITE_WIDTH < k_SCREEN_WIDTH * k_SPRITE_WIDTH) )
-	{
-		potentialScroll.x += moveCompo->m_velocity.x;
-		moveCompo->m_velocity.x = 0.0f;
-	}
 
 	// calculate potential position for collisions
 	GS_Vector2 potentialPositionOnX = moveCompo->m_position;
@@ -249,7 +234,7 @@ void GS_MoveComponent::updateKeyboard( const float _dt )
 	potentialPositionOnY.y += moveCompo->m_velocity.y;
 
 	// calculate collisions with environment on X axis
-	const GS_Vector2 extendSprite( static_cast< float >(k_SPRITE_WIDTH), static_cast< float >(k_SPRITE_HEIGHT) );
+	const GS_Vector2 extendSprite( static_cast< float >( k_SPRITE_WIDTH ), static_cast< float >( k_SPRITE_HEIGHT ) );
 
 	GS_AABB entityOnX( potentialPositionOnX, extendSprite );
 
@@ -289,7 +274,7 @@ void GS_MoveComponent::updateKeyboard( const float _dt )
 		GS_MoveDataComponent* enemyMoveCompo = GS_PositionDataSystem::getInstance()->getComponent( enemies[ i ]->getId() );
 		if ( enemyMoveCompo )
 		{
-			GS_Vector2 topLeft = enemyMoveCompo->m_position - (potentialScroll - GS_Game::getInstance()->getScroll());
+			GS_Vector2 topLeft = enemyMoveCompo->m_position - ( potentialScroll - GS_Game::getInstance()->getScroll() );
 			GS_AABB enemyTile( topLeft, extendSprite );
 
 			if ( entityOnX.overlaps( enemyTile ) && entityOnY.overlaps( enemyTile ) )
@@ -299,6 +284,25 @@ void GS_MoveComponent::updateKeyboard( const float _dt )
 			}
 		}
 	}
+
+	if ( canMoveOnX
+		&& moveCompo->m_velocity.x > 0.0f
+		&& moveCompo->m_position.x + moveCompo->m_velocity.x > 250.0f
+		&& ( GS_Game::getInstance()->getScroll().x + k_SCREEN_WIDTH * k_SPRITE_WIDTH < k_LEVEL_WIDTH * k_SPRITE_WIDTH ) )
+	{
+		potentialScroll.x += moveCompo->m_velocity.x;
+		moveCompo->m_velocity.x = 0.0f;
+	}
+	else if ( canMoveOnX
+		&& moveCompo->m_velocity.x < 0.0f
+		&& GS_Game::getInstance()->getScroll().x > 0.0f
+		&& ( moveCompo->m_position.x + moveCompo->m_velocity.x ) < ( k_SCREEN_WIDTH * k_SPRITE_WIDTH - 250.0f )
+		&& ( moveCompo->m_position.x + moveCompo->m_velocity.x + k_SPRITE_WIDTH < k_SCREEN_WIDTH * k_SPRITE_WIDTH ) )
+	{
+		potentialScroll.x += moveCompo->m_velocity.x;
+		moveCompo->m_velocity.x = 0.0f;
+	}
+
 
 	// set the position regarding result of collisions calculation
 	if ( canMoveOnX )
@@ -344,15 +348,17 @@ void GS_MoveComponent::updateKeyboard( const float _dt )
 
 }
 
-bool GS_MoveComponent::checkCollisionsWith( const GS_AABB& _entity, const GS_Vector2& _potentialScroll /*= GS_Vector2()*/ ) const
+bool GS_MoveComponent::checkCollisionsWith( const GS_AABB& _entity, const GS_Vector2& scroll /*= GS_Vector2()*/ ) const
 {
-	const GS_Vector2 extendSprite( static_cast< float >(k_SPRITE_WIDTH), static_cast< float >(k_SPRITE_HEIGHT) );
+	const GS_Vector2 extendSprite( static_cast< float >( k_SPRITE_WIDTH ), static_cast< float >( k_SPRITE_HEIGHT ) );
 	const size_t max_cells = k_SPRITE_WIDTH * k_SPRITE_HEIGHT;
+
+	bool collision_found = false;
 
 	for ( size_t i = 0u; i < max_cells; ++i )
 	{
-		GS_Vector2 topLeft = GS_Vector2( (i % k_LEVEL_WIDTH) * k_SPRITE_WIDTH - _potentialScroll.x,
-			(i / k_LEVEL_WIDTH) * k_SPRITE_HEIGHT - _potentialScroll.y );
+		GS_Vector2 topLeft = GS_Vector2( static_cast< float >( ( i % k_LEVEL_WIDTH ) * k_SPRITE_WIDTH ) - scroll.x,
+			static_cast< float >( ( i / k_LEVEL_WIDTH ) * k_SPRITE_HEIGHT ) - scroll.y );
 
 		GS_AABB tile( topLeft, extendSprite );
 
@@ -377,10 +383,10 @@ bool GS_MoveComponent::checkCollisionsWith( const GS_AABB& _entity, const GS_Vec
 				}
 #endif // _DEBUG
 
-				return true;
+				collision_found = true;
 			}
 		}
 	}
 
-	return false;
+	return collision_found;
 }

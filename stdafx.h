@@ -9,12 +9,14 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <thread>
 
 #include "Vector2.h"
 #include "AABB.h"
 
 #ifdef _DEBUG
 #include "vld.h"
+#include "optick.h"
 #endif // _DEBUG
 
 #include <SDL.h>

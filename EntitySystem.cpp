@@ -32,6 +32,10 @@ GS_EntitySystem::~GS_EntitySystem()
 
 void GS_EntitySystem::process( const float _dt )
 {
+#ifdef _DEBUG
+	OPTICK_EVENT();
+#endif // _DEBUG
+
 	std::vector< GS_Entity* >::const_iterator it = m_toRemove.begin();
 	const std::vector< GS_Entity* >::const_iterator itEnd = m_toRemove.end();
 	for ( ; it != itEnd; ++it )
@@ -44,7 +48,20 @@ void GS_EntitySystem::process( const float _dt )
 		}
 	}
 	m_toRemove.clear();
+
 	// update sub-systems
+// 	std::thread job1( [ = ] ()
+// 		{
+// 			GS_InputSystem::getInstance()->process( _dt );
+// 			GS_ShootSystem::getInstance()->process( _dt );
+// 			GS_MovingSystem::getInstance()->process( _dt );
+// 			GS_RenderSystem::getInstance()->process( _dt );
+// #ifdef _DEBUG
+// 			DebugDrawSystem::getInstance()->process( _dt );
+// #endif // _DEBUG
+// 		} );
+// 	job1.join();
+
 	GS_InputSystem::getInstance()->process( _dt );
 	GS_ShootSystem::getInstance()->process( _dt );
 	GS_MovingSystem::getInstance()->process( _dt );
