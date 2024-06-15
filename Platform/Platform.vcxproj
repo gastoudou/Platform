@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="source\Component\DebugDrawComponent.cpp" />
+    <ClCompile Include="source\Component\InputComponent.cpp" />
+    <ClCompile Include="source\Component\MoveComponent.cpp" />
+    <ClCompile Include="source\Component\RenderComponent.cpp" />
+    <ClCompile Include="source\Component\ShootComponent.cpp" />
+    <ClCompile Include="source\Core\Entity.cpp" />
+    <ClCompile Include="source\Core\Game.cpp" />
+    <ClCompile Include="source\Core\Job.cpp" />
+    <ClCompile Include="source\Core\Message.cpp" />
+    <ClCompile Include="source\Core\NERDGame.cpp" />
+    <ClCompile Include="source\Core\NERDSprite.cpp" />
+    <ClCompile Include="source\Core\ResourceManager.cpp" />
+    <ClCompile Include="source\Core\stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\Core\Store.cpp" />
+    <ClCompile Include="source\DataComponent\DebugDataComponent.cpp" />
+    <ClCompile Include="source\DataComponent\JumpDataComponent.cpp" />
+    <ClCompile Include="source\DataComponent\MoveDataComponent.cpp" />
+    <ClCompile Include="source\DataComponent\ScrollDataComponent.cpp" />
+    <ClCompile Include="source\System\DebugDrawSystem.cpp" />
+    <ClCompile Include="source\System\DebugSystem.cpp" />
+    <ClCompile Include="source\System\EntitySystem.cpp" />
+    <ClCompile Include="source\System\InputSystem.cpp" />
+    <ClCompile Include="source\System\JumpDataSystem.cpp" />
+    <ClCompile Include="source\System\MovingSystem.cpp" />
+    <ClCompile Include="source\System\PositionDataSystem.cpp" />
+    <ClCompile Include="source\System\RenderSystem.cpp" />
+    <ClCompile Include="source\System\ScrollSystem.cpp" />
+    <ClCompile Include="source\System\ShootSystem.cpp" />
+    <ClCompile Include="source\System\SpriteDataSystem.cpp" />
+    <ClCompile Include="source\System\System.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\Component\DebugDrawComponent.h" />
+    <ClInclude Include="source\Component\InputComponent.h" />
+    <ClInclude Include="source\Component\MoveComponent.h" />
+    <ClInclude Include="source\Component\RenderComponent.h" />
+    <ClInclude Include="source\Component\ShootComponent.h" />
+    <ClInclude Include="source\Core\AABB.h" />
+    <ClInclude Include="source\Core\Component.h" />
+    <ClInclude Include="source\Core\Entity.h" />
+    <ClInclude Include="source\Core\Game.h" />
+    <ClInclude Include="source\Core\Job.h" />
+    <ClInclude Include="source\Core\Message.h" />
+    <ClInclude Include="source\Core\NERDGame.h" />
+    <ClInclude Include="source\Core\NERDSprite.h" />
+    <ClInclude Include="source\Core\ResourceManager.h" />
+    <ClInclude Include="source\Core\Singleton.h" />
+    <ClInclude Include="source\Core\stdafx.h" />
+    <ClInclude Include="source\Core\Store.h" />
+    <ClInclude Include="source\Core\Vector2.h" />
+    <ClInclude Include="source\DataComponent\DebugDataComponent.h" />
+    <ClInclude Include="source\DataComponent\JumpDataComponent.h" />
+    <ClInclude Include="source\DataComponent\MoveDataComponent.h" />
+    <ClInclude Include="source\DataComponent\ScrollDataComponent.h" />
+    <ClInclude Include="source\System\DebugDrawSystem.h" />
+    <ClInclude Include="source\System\DebugSystem.h" />
+    <ClInclude Include="source\System\EntitySystem.h" />
+    <ClInclude Include="source\System\InputSystem.h" />
+    <ClInclude Include="source\System\JumpDataSystem.h" />
+    <ClInclude Include="source\System\MovingSystem.h" />
+    <ClInclude Include="source\System\PositionDataSystem.h" />
+    <ClInclude Include="source\System\RenderSystem.h" />
+    <ClInclude Include="source\System\ScrollSystem.h" />
+    <ClInclude Include="source\System\ShootSystem.h" />
+    <ClInclude Include="source\System\SpriteDataSystem.h" />
+    <ClInclude Include="source\System\System.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{0aaa5967-3c39-4474-a07e-8bbcbae8d40d}</ProjectGuid>
+    <RootNamespace>Platform</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LibraryPath>C:\Program Files %28x86%29\Visual Leak Detector\lib\Win64;C:\SDL2-2.0.9\VisualC\x64\Release;C:\SDL2_mixer-2.0.4\lib\x64;C:\SDL2_image-2.0.3\lib\x64;C:\SDL2_TTF\lib\x64;C:\SDL2-2.0.9\include;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files %28x86%29\Visual Leak Detector\include;C:\SDL2_mixer-2.0.4\include;C:\SDL2_image-2.0.3\include;C:\SDL2_TTF\include;C:\SDL2-2.0.9\include;$(IncludePath);./source/System;./source;./source/Core;./source/Component;./soufce/DataComponent</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LibraryPath>C:\Program Files %28x86%29\Visual Leak Detector\lib\Win64;C:\SDL2-2.0.9\VisualC\x64\Release;C:\SDL2_mixer-2.0.4\lib\x64;C:\SDL2_image-2.0.3\lib\x64;C:\SDL2_TTF\lib\x64;C:\SDL2-2.0.9\include;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files %28x86%29\Visual Leak Detector\include;C:\SDL2_mixer-2.0.4\include;C:\SDL2_image-2.0.3\include;C:\SDL2_TTF\include;C:\SDL2-2.0.9\include;$(IncludePath);./source/System;./source;./source/Core;./source/Component;./soufce/DataComponent</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LibraryPath>C:\Programming\Optick_1.4.0\lib\x64\release;C:\Program Files %28x86%29\Visual Leak Detector\lib\Win64;C:\Programming\SDL2-2.0.9\VisualC\x64\Release;C:\Programming\SDL2_mixer-2.0.4\lib\x64;C:\Programming\SDL2_image-2.0.3\lib\x64;C:\Programming\SDL2_TTF\lib\x64;C:\Programming\SDL2-2.0.9\include;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Programming\Optick_1.4.0\include;C:\Program Files %28x86%29\Visual Leak Detector\include;C:\Programming\SDL2_mixer-2.0.4\include;C:\Programming\SDL2_image-2.0.3\include;C:\Programming\SDL2_TTF\include;C:\Programming\SDL2-2.0.9\include;$(IncludePath);./source/System;./source;./source/Core;./source/Component;./source/DataComponent</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LibraryPath>C:\Programming\SDL2-2.0.9\VisualC\x64\Release;C:\Programming\SDL2_mixer-2.0.4\lib\x64;C:\Programming\SDL2_image-2.0.3\lib\x64;C:\Programming\SDL2_TTF\lib\x64;C:\Programming\SDL2-2.0.9\include;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Programming\SDL2_mixer-2.0.4\include;C:\Programming\SDL2_image-2.0.3\include;C:\Programming\SDL2_TTF\include;C:\Programming\SDL2-2.0.9\include;$(IncludePath);./source;./source/Component;./source/Core;./source/DataComponent;./source/System</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeaderFile>./source/Core/stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>vld.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeaderFile>./source/Core/stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>vld.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeaderFile>Core/stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>OptickCore.lib;vld.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeaderFile>Core/stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Component">
+      <UniqueIdentifier>{08e451f9-1ce2-43f9-9218-ae8d0f07e144}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{dd5b205d-583b-46a5-928a-13092265401b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataComponent">
+      <UniqueIdentifier>{810972b0-a4cc-4e28-af2c-c1f4d2d9f52d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{ae73677b-a01e-458d-af16-7382ef944adf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\DataComponent\DebugDataComponent.cpp">
+      <Filter>DataComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="source\DataComponent\JumpDataComponent.cpp">
+      <Filter>DataComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="source\DataComponent\MoveDataComponent.cpp">
+      <Filter>DataComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="source\DataComponent\ScrollDataComponent.cpp">
+      <Filter>DataComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="source\System\DebugDrawSystem.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="source\System\DebugSystem.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="source\System\EntitySystem.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="source\System\InputSystem.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="source\System\JumpDataSystem.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="source\System\MovingSystem.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="source\System\PositionDataSystem.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="source\System\RenderSystem.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="source\System\ScrollSystem.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="source\System\ShootSystem.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="source\System\SpriteDataSystem.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="source\System\System.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Core\Entity.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Core\Game.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Core\Job.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Core\Message.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Core\NERDGame.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Core\NERDSprite.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Core\ResourceManager.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Core\stdafx.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Core\Store.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Component\DebugDrawComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Component\InputComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Component\MoveComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Component\RenderComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Component\ShootComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\DataComponent\DebugDataComponent.h">
+      <Filter>DataComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="source\DataComponent\JumpDataComponent.h">
+      <Filter>DataComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="source\DataComponent\MoveDataComponent.h">
+      <Filter>DataComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="source\DataComponent\ScrollDataComponent.h">
+      <Filter>DataComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="source\System\DebugDrawSystem.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="source\System\DebugSystem.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="source\System\EntitySystem.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="source\System\InputSystem.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="source\System\JumpDataSystem.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="source\System\MovingSystem.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="source\System\PositionDataSystem.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="source\System\RenderSystem.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="source\System\ScrollSystem.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="source\System\ShootSystem.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="source\System\SpriteDataSystem.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="source\System\System.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Core\AABB.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Core\Component.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Core\Entity.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Core\Game.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Core\Job.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Core\Message.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Core\NERDGame.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Core\NERDSprite.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Core\ResourceManager.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Core\Singleton.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Core\stdafx.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Core\Store.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Core\Vector2.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Component\DebugDrawComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Component\InputComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Component\MoveComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Component\RenderComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Component\ShootComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
