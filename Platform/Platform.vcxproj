@@ -151,12 +151,12 @@
     <IncludePath>C:\Program Files %28x86%29\Visual Leak Detector\include;C:\SDL2_mixer-2.0.4\include;C:\SDL2_image-2.0.3\include;C:\SDL2_TTF\include;C:\SDL2-2.0.9\include;$(IncludePath);./source/System;./source;./source/Core;./source/Component;./soufce/DataComponent</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>C:\Programming\Optick_1.4.0\lib\x64\release;C:\Program Files %28x86%29\Visual Leak Detector\lib\Win64;C:\Programming\SDL2-2.0.9\VisualC\x64\Release;C:\Programming\SDL2_mixer-2.0.4\lib\x64;C:\Programming\SDL2_image-2.0.3\lib\x64;C:\Programming\SDL2_TTF\lib\x64;C:\Programming\SDL2-2.0.9\include;$(LibraryPath)</LibraryPath>
-    <IncludePath>C:\Programming\Optick_1.4.0\include;C:\Program Files %28x86%29\Visual Leak Detector\include;C:\Programming\SDL2_mixer-2.0.4\include;C:\Programming\SDL2_image-2.0.3\include;C:\Programming\SDL2_TTF\include;C:\Programming\SDL2-2.0.9\include;$(IncludePath);./source/System;./source;./source/Core;./source/Component;./source/DataComponent</IncludePath>
+    <LibraryPath>C:\Programming\Optick_1.4.0\lib\x64\release;C:\Program Files %28x86%29\Visual Leak Detector\lib\Win64;C:\Programming\SDL2\VisualC\x64\Release;C:\Programming\SDL2_mixer\lib\x64;C:\Programming\SDL2_image\lib\x64;C:\Programming\SDL2_TTF\lib\x64;C:\Programming\SDL2\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Programming\Optick_1.4.0\include;C:\Program Files %28x86%29\Visual Leak Detector\include;C:\Programming\SDL2_mixer\include;C:\Programming\SDL2_image\include;C:\Programming\SDL2_TTF\include;C:\Programming\SDL2\include;$(IncludePath);./source/System;./source;./source/Core;./source/Component;./source/DataComponent</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LibraryPath>C:\Programming\SDL2-2.0.9\VisualC\x64\Release;C:\Programming\SDL2_mixer-2.0.4\lib\x64;C:\Programming\SDL2_image-2.0.3\lib\x64;C:\Programming\SDL2_TTF\lib\x64;C:\Programming\SDL2-2.0.9\include;$(LibraryPath)</LibraryPath>
-    <IncludePath>C:\Programming\SDL2_mixer-2.0.4\include;C:\Programming\SDL2_image-2.0.3\include;C:\Programming\SDL2_TTF\include;C:\Programming\SDL2-2.0.9\include;$(IncludePath);./source;./source/Component;./source/Core;./source/DataComponent;./source/System</IncludePath>
+    <LibraryPath>C:\Programming\SDL2\lib\x64;C:\Programming\SDL2_mixer\lib\x64;C:\Programming\SDL2_image\lib\x64;C:\Programming\SDL2_TTF\lib\x64;C:\Programming\SDL2\include;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Programming\SDL2_mixer\include;C:\Programming\SDL2_image\include;C:\Programming\SDL2_TTF\include;C:\Programming\SDL2\include;$(IncludePath);./source;./source/Component;./source/Core;./source/DataComponent;./source/System</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
