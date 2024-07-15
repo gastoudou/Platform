@@ -50,7 +50,7 @@ private:
 	void loadNewLevel();
 	void renderLevel();
 	void createEnemy( const  int, const int ) const;
-	void createPlayer( const int ) const;
+	void createPlayer( const int );
 
 	std::vector< size_t > m_level;
 	std::vector< GS_Sprite* > m_sprites;
@@ -59,6 +59,8 @@ private:
 	size_t m_maxSprites = 0u;
 	size_t m_idLevel = 0u;
 	size_t m_id = 0u;
+	size_t m_playerID = 0u;
+
 	bool m_isLevelClear = false;
 	bool m_isPlayerDead = false;
 	bool m_isRunning = false;

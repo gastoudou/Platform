@@ -78,7 +78,7 @@ void GS_JumpDataComponent::Update()
 			moveCompo->update_velocity_y( -m_jumpForce );
 		}
 	}
-	else if ( !m_isFalling && !m_isJumping && !m_isTouchingGround )
+	else // if ( !m_isFalling && !m_isJumping && !m_isTouchingGround )
 	{
 		m_isFalling = true;
 	}

@@ -285,6 +285,37 @@ void GS_Game::renderLevel()
 				m_sprites[ id - 1 ]->draw_debug( x, y );
 #endif // _DEBUG
 			}
+
+#ifdef _DEBUG
+			/*if ( id == 0 )
+			{
+				SDL_SetRenderDrawColor( m_game->renderer, 255, 0, 0, 255 );
+				SDL_Rect position;
+				position.x = static_cast< int >( i * k_SPRITE_WIDTH - getScroll().x );
+				position.y = static_cast< int >( j * k_SPRITE_HEIGHT - getScroll().y );
+				position.w = k_SPRITE_WIDTH;
+				position.h = k_SPRITE_HEIGHT;
+
+				const GS_Vector2 extendSprite( static_cast< float >( k_SPRITE_WIDTH ), static_cast< float >( k_SPRITE_HEIGHT ) );
+				GS_Vector2 topLeft = GS_Vector2( static_cast< float >( ( i % k_LEVEL_WIDTH ) * k_SPRITE_WIDTH ) - getScroll().x,
+					static_cast< float >( ( i / k_LEVEL_WIDTH ) * k_SPRITE_HEIGHT ) - getScroll().y );
+				GS_AABB tile( topLeft, extendSprite );
+
+				if ( GS_MoveDataComponent* playerMoveCompo = GS_PositionDataSystem::getInstance()->getComponent( m_playerID ) )
+				{
+					const GS_AABB playerAABB( playerMoveCompo->get_position(), extendSprite);
+
+					//if ( playerAABB.overlaps( tile ) )
+					{
+						SDL_RenderFillRect( m_game->renderer, &position );
+					}
+					//else
+					{
+						//SDL_RenderDrawRect( m_game->renderer, &position );
+					}
+				}
+			}*/
+#endif // _DEBUG
 		}
 	}
 }
@@ -318,23 +349,23 @@ void GS_Game::createEnemy( const  int _type, const int _idCell ) const
 	GS_ScrollSystem::getInstance()->addComponent( idEntity, GS_Vector2( -1.0f, 0.0f ) );
 }
 
-void GS_Game::createPlayer( const int _idCell ) const
+void GS_Game::createPlayer( const int _idCell )
 {
 	/*char buffer[ 256 ];
 	GetPrivateProfileString( "Move", "SpeedPlayer", "150", buffer, 256, ".\\data\\config.ini");
 	float speed = static_cast< float >( atof( buffer ) );*/
 	const float speed = 150.0f;
 
-	size_t idEntity = GS_EntitySystem::getInstance()->registerEntity();
+	m_playerID = GS_EntitySystem::getInstance()->registerEntity();
 	GS_Vector2 position = GS_Vector2( static_cast< float >( ( _idCell % k_LEVEL_WIDTH ) * k_SPRITE_WIDTH ), static_cast< float >( ( _idCell / k_LEVEL_WIDTH ) * k_SPRITE_HEIGHT ) );
-	GS_PositionDataSystem::getInstance()->addComponent( idEntity, position, speed );
-	GS_RenderSystem::getInstance()->addComponent( idEntity, "data//player.bmp" );
-	GS_InputSystem::getInstance()->addComponent( idEntity );
-	GS_MovingSystem::getInstance()->addComponent( idEntity, KEYBOARD );
-	GS_JumpDataSystem::getInstance()->addComponent( idEntity );
+	GS_PositionDataSystem::getInstance()->addComponent( m_playerID, position, speed );
+	GS_RenderSystem::getInstance()->addComponent( m_playerID, "data//player.bmp" );
+	GS_InputSystem::getInstance()->addComponent( m_playerID );
+	GS_MovingSystem::getInstance()->addComponent( m_playerID, KEYBOARD );
+	GS_JumpDataSystem::getInstance()->addComponent( m_playerID );
 #ifdef _DEBUG
-	DebugSystem::getInstance()->addComponent( idEntity );
-	DebugDrawSystem::getInstance()->addComponent( idEntity );
+	DebugSystem::getInstance()->addComponent( m_playerID );
+	DebugDrawSystem::getInstance()->addComponent( m_playerID );
 #endif // _DEBUG
 }
 

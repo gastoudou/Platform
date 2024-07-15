@@ -7,6 +7,8 @@ struct SDL_Renderer;
 
 class NERDGame
 {
+	friend class GS_Game;
+
 public:
 	enum KeyNames
 	{
