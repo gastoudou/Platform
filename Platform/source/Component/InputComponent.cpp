@@ -7,8 +7,6 @@
 #include "MovingSystem.h"
 #include "MoveComponent.h"
 
-#include "SDL_events.h"
-
 const int JOYSTICK_DEAD_ZONE = 8000;
 
 /// InputComponent - implementation
@@ -55,7 +53,7 @@ void GS_InputComponent::update( const float )
 		m_UpKeyRelease = true;
 	}
 
-	int joypadOnX = GS_Game::getInstance()->getJoypadValueX( 0 );
+	auto joypadOnX = GS_Game::getInstance()->getJoypadValueX( 0 );
 	if ( joypadOnX > JOYSTICK_DEAD_ZONE )
 	{
 		GS_MovingSystem::getInstance()->setMove( m_id, RIGHT );
@@ -65,13 +63,13 @@ void GS_InputComponent::update( const float )
 		GS_MovingSystem::getInstance()->setMove( m_id, LEFT );
 	}
 
-	int joyPadBtnJmp = GS_Game::getInstance()->getJoypadBtn( 0 );
-	if ( joyPadBtnJmp == SDL_PRESSED && m_UpJoyRelease )
+	auto joyPadBtnJmp = GS_Game::getInstance()->getJoypadBtn( 0 );
+	if ( joyPadBtnJmp == true && m_UpJoyRelease )
 	{
 		GS_MovingSystem::getInstance()->setJump( m_id );
 		m_UpJoyRelease = false;
 	}
-	if ( joyPadBtnJmp == SDL_RELEASED )
+	if ( joyPadBtnJmp == false )
 	{
 		m_UpJoyRelease = true;
 	}

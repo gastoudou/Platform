@@ -38,6 +38,9 @@ void GS_Game::init()
 	m_game = new NERDGame();
 	m_game->initialize( k_SCREEN_WIDTH * k_SPRITE_WIDTH, k_SCREEN_HEIGHT * k_SPRITE_HEIGHT );
 
+	m_id = GS_EntitySystem::getInstance()->registerEntity();
+	GS_ScrollSystem::getInstance()->addComponent( m_id, GS_Vector2( 0.0f, 0.0f ) );
+
 	m_sprites.push_back( m_game->createSpriteFromBMP( "data//grassLeft.bmp" ) );
 	m_sprites.push_back( m_game->createSpriteFromBMP( "data//grassMid.bmp" ) );
 	m_sprites.push_back( m_game->createSpriteFromBMP( "data//grassRight.bmp" ) );
@@ -51,9 +54,6 @@ void GS_Game::init()
 	m_shouldLoadNewLevel = false;
 	m_isLevelClear = false;
 	m_isRunning = true;
-
-	m_id = GS_EntitySystem::getInstance()->registerEntity();
-	GS_ScrollSystem::getInstance()->addComponent( m_id, GS_Vector2( 0.0f, 0.0f ) );
 }
 
 void GS_Game::reInit()
@@ -71,7 +71,10 @@ void GS_Game::reInit()
 void GS_Game::loadNewLevel()
 {
 	GS_EntitySystem::getInstance()->shutDown();
-	/*memset( &m_level, -1, sizeof( int ) * k_LEVEL_WIDTH * k_LEVEL_HEIGHT );*/
+
+	m_id = GS_EntitySystem::getInstance()->registerEntity();
+	GS_ScrollSystem::getInstance()->addComponent( m_id, GS_Vector2( 0.0f, 0.0f ) );
+
 	m_level.resize( k_LEVEL_HEIGHT * k_LEVEL_WIDTH, 0u );
 	loadLevel();
 	setScroll( GS_Vector2( 0.0f, 0.0f ) );
@@ -91,6 +94,7 @@ bool GS_Game::update()
 	if ( m_game->update() )
 	{
 		renderLevel();
+
 		GS_EntitySystem::getInstance()->process( m_game->getElapsedTime() );
 
 		if ( m_game->getKeyState() & NERDGame::NERD_KEY_SPACE )
@@ -106,6 +110,7 @@ bool GS_Game::update()
 				m_idLevel = 0;
 			}
 			loadNewLevel();
+// 			m_isRunning = false;
 		}
 
 		if ( m_isPlayerDead )
@@ -131,6 +136,16 @@ void GS_Game::shutDown()
 	}
 	// shutdown game
 	m_game->shutdown();
+
+	m_level.clear();
+
+	GS_EntitySystem::getInstance()->shutDown();
+
+	m_maxSprites = 0;
+	m_isPlayerDead = false;
+	m_shouldRestart = false;
+	m_shouldLoadNewLevel = false;
+	m_isLevelClear = false;
 }
 
 float GS_Game::getElapsedTime() const
@@ -168,7 +183,7 @@ int GS_Game::getJoypadValueY( int id ) const
 	return m_game->getJoypadValueY( id );
 }
 
-int GS_Game::getJoypadBtn( int id ) const
+bool GS_Game::getJoypadBtn( int id ) const
 {
 	return m_game->getJoypadBtn( id );
 }
@@ -335,18 +350,24 @@ void GS_Game::createEnemy( const  int _type, const int _idCell ) const
 	/*char buffer[ 256 ];
 	GetPrivateProfileString( "Move", "SpeedEnemy", "150", buffer, 256, ".\\data\\config.ini");
 	const float speed = static_cast< float >( atof( buffer ) );*/
+#ifdef _DEBUG
+	const float speed = 15.0f;
+#else
 	const float speed = 150.0f;
+#endif // _DEBUG
 
 	size_t idEntity = GS_EntitySystem::getInstance()->registerEntity();
-	GS_Vector2 position = GS_Vector2( static_cast< float >( ( _idCell % k_LEVEL_WIDTH ) * k_SPRITE_WIDTH ), static_cast< float >( ( _idCell / k_LEVEL_WIDTH ) * k_SPRITE_HEIGHT ) );
+	GS_Vector2 direction = GS_Vector2( rand() % 10 > 5 ? -1.0f : 1.0f, 0.0f );
+	GS_Vector2 position = GS_Vector2( static_cast< float >( ( _idCell % k_LEVEL_WIDTH ) * k_SPRITE_WIDTH ), static_cast< float >( ( _idCell / k_LEVEL_WIDTH ) * k_SPRITE_HEIGHT ) ) + GS_Game::getInstance()->getScroll();
 	GS_PositionDataSystem::getInstance()->addComponent( idEntity, position, speed );
 	GS_RenderSystem::getInstance()->addComponent( idEntity, "data//enemy.bmp" );
 	GS_MovingSystem::getInstance()->addComponent( idEntity, SLIDER );
+	GS_ScrollSystem::getInstance()->addComponent( idEntity, direction );
+
 	if ( _type == 6 )
 	{ // enemy shooter
 		GS_ShootSystem::getInstance()->addComponent( idEntity );
 	}
-	GS_ScrollSystem::getInstance()->addComponent( idEntity, GS_Vector2( -1.0f, 0.0f ) );
 }
 
 void GS_Game::createPlayer( const int _idCell )
@@ -354,7 +375,11 @@ void GS_Game::createPlayer( const int _idCell )
 	/*char buffer[ 256 ];
 	GetPrivateProfileString( "Move", "SpeedPlayer", "150", buffer, 256, ".\\data\\config.ini");
 	float speed = static_cast< float >( atof( buffer ) );*/
+#ifdef _DEBUG
+	const float speed = 15.0f;
+#else
 	const float speed = 150.0f;
+#endif // _DEBUG
 
 	m_playerID = GS_EntitySystem::getInstance()->registerEntity();
 	GS_Vector2 position = GS_Vector2( static_cast< float >( ( _idCell % k_LEVEL_WIDTH ) * k_SPRITE_WIDTH ), static_cast< float >( ( _idCell / k_LEVEL_WIDTH ) * k_SPRITE_HEIGHT ) );

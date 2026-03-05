@@ -26,8 +26,8 @@ private:
 	SDL_Renderer* renderer = nullptr;
 	SDL_Surface* surface = nullptr;
 	SDL_Texture* texture = nullptr;
-	int width = 0;
-	int height = 0;
+	float width = 0.f;
+	float height = 0.f;
 };
 
 #endif

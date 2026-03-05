@@ -51,4 +51,9 @@ const char* DebugDataComponent::get_text() const
 	return m_debug_text.c_str();
 }
 
+const size_t DebugDataComponent::get_text_size() const
+{
+	return m_debug_text.size();
+}
+
 #endif // _DEBUG

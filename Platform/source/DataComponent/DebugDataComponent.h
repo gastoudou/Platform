@@ -22,6 +22,7 @@ public:
 
 	const std::vector< size_t >& get_colliders() const;
 	const char* get_text() const;
+	const size_t get_text_size() const;
 
 private:
 	DebugDataComponent() = delete;

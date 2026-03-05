@@ -1,4 +1,5 @@
 #pragma once
+
 // STL
 #include <algorithm>
 #include <atomic>
@@ -12,15 +13,19 @@
 #include <fstream>
 #include <iostream>
 #include <list>
-#include <map>
+#include <unordered_map>
 #include <sstream>
 #include <string>
 #include <thread>
 #include <vector>
+
 // Rendering
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
+#include "SDL3/SDL.h"
+#include "SDL3_image/SDL_image.h"
+#include "SDL3_ttf/SDL_ttf.h"
+#include "SDL3/SDL_events.h"
+#include "SDL3/SDL_joystick.h"
+
 // Custom
 #include "Component/InputComponent.h"
 #include "Core/Vector2.h"
@@ -60,5 +65,5 @@ enum Direction : int
 	RIGHT = 1
 };
 
-#define JOB_SYSTEM
-//#undef JOB_SYSTEM
+//#define JOB_SYSTEM
+#undef JOB_SYSTEM

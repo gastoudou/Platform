@@ -37,28 +37,28 @@ void DebugDrawComponent::update( const float )
 		for ( auto tile_id : debugCompo->get_colliders() )
 		{
 			SDL_SetRenderDrawColor( m_renderer, 255, 0, 255, 255 );
-			SDL_Rect position;
-			position.x = int( tile_id % k_LEVEL_WIDTH ) * k_SPRITE_WIDTH - int( scroll.x );
-			position.y = int( tile_id / k_LEVEL_WIDTH ) * k_SPRITE_HEIGHT - int( scroll.y );
-			position.w = k_SPRITE_WIDTH;
-			position.h = k_SPRITE_HEIGHT;
+			SDL_FRect position;
+			position.x = float( int( tile_id % k_LEVEL_WIDTH ) * k_SPRITE_WIDTH - int( scroll.x ) );
+			position.y = float( int( tile_id / k_LEVEL_WIDTH ) * k_SPRITE_HEIGHT - int( scroll.y ) );
+			position.w = float( k_SPRITE_WIDTH );
+			position.h = float( k_SPRITE_HEIGHT );
 			// std::cout << __FUNCTION__ << std::endl;
 			SDL_RenderFillRect( m_renderer, &position );
 		}
 
 		SDL_Color color = { 255, 255, 255 };
-		SDL_Surface* surface = TTF_RenderText_Solid( font, debugCompo->get_text(), color );
+		SDL_Surface* surface = TTF_RenderText_Solid( font, debugCompo->get_text(), debugCompo->get_text_size(), color);
 		SDL_Texture* texture = SDL_CreateTextureFromSurface( m_renderer, surface );
 
-		int texW = 0;
-		int texH = 0;
-		SDL_QueryTexture( texture, NULL, NULL, &texW, &texH );
-		SDL_Rect dstrect = { 0, 0, texW, texH };
+		float texW = 0;
+		float texH = 0;
+		SDL_GetTextureSize( texture, &texW, &texH );
+		SDL_FRect dstrect = { 0.f, 0.f, texW, texH };
 
-		SDL_RenderCopy( m_renderer, texture, NULL, &dstrect );
+		SDL_RenderTexture( m_renderer, texture, NULL, &dstrect );
 
 		SDL_DestroyTexture( texture );
-		SDL_FreeSurface( surface );
+		SDL_DestroySurface( surface );
 	}
 
 	GS_RenderSystem::getInstance()->lock.unlock();
@@ -67,6 +67,7 @@ void DebugDrawComponent::update( const float )
 void DebugDrawComponent::shutDown()
 {
 	TTF_CloseFont( font );
+	font = nullptr;
 }
 
 #endif // _DEBUG

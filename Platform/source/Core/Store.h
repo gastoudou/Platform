@@ -14,7 +14,7 @@ public:
 
 protected:
 	std::vector< GS_DataComponent* > m_components;
-	std::map< size_t, size_t > m_indexTable; // lhs: entity id, rhs: component id in vector
+	std::unordered_map< size_t, size_t > m_indexTable; // lhs: entity id, rhs: component id in vector
 };
 
 #endif

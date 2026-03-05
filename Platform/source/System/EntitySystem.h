@@ -29,7 +29,7 @@ private:
 
 	std::vector< GS_Entity* > m_entities;
 	std::vector< GS_Entity* > m_toRemove;
-	size_t m_nextId;
+	size_t m_nextId = 0u;
 	mutable std::mutex lock;
 };
 

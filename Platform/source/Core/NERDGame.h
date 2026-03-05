@@ -33,7 +33,7 @@ public:
 	int getJoypadValueX( int id ) const;
 	int getJoypadValueY( int id ) const;
 
-	int getJoypadBtn( int id ) const;
+	bool getJoypadBtn( int id ) const;
 
 private:
 	NERDGame( const NERDGame& );
@@ -44,10 +44,10 @@ private:
 
 	SDL_Joystick* gameController = nullptr;
 
-	int joypads[ 1 ][ 2 ] = { 0 };
-	int buttons[ 1 ][ 8 ] = { 0 };
+	bool joypads[ 1 ][ 2 ] = { false };
+	bool buttons[ 1 ][ 8 ] = { false };
 	int keyState = 0;
-	int lastTick = 0;
+	uint64_t lastTick = 0;
 };
 
 #endif // NERD_GAME_H

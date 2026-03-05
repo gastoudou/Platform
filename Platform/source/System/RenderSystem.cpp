@@ -12,6 +12,6 @@ void GS_RenderSystem::addComponent( size_t _id, const char* _path )
 {
 	GS_RenderComponent* compo = new GS_RenderComponent( _id );
 	compo->init();
-	GS_SpriteDataSystem::getInstance()->loadSprite( _path );
+	GS_SpriteDataSystem::getInstance()->loadSprite( _path, _id );
 	m_components.push_back( compo );
 }

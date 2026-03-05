@@ -12,14 +12,14 @@ public:
 	GS_SpriteDataSystem();
 	~GS_SpriteDataSystem();
 
-	void loadSprite( const char* );
+	void loadSprite( const char* path, size_t id );
 	bool getSpriteById( size_t, size_t& ) const;
 
 private:
 	GS_SpriteDataSystem( const GS_SpriteDataSystem& );
 	GS_SpriteDataSystem& operator=( const GS_SpriteDataSystem& ) = delete;
 
-	std::vector< size_t > m_ids;
+	std::unordered_map< size_t, size_t > m_ids;
 };
 
 #endif

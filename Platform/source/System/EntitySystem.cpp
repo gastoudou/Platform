@@ -11,11 +11,7 @@
 #include "PositionDataSystem.h"
 
 /// EntitySystem - implementation
-GS_EntitySystem::GS_EntitySystem()
-	: m_entities()
-	, m_nextId( std::numeric_limits< size_t >::max() )
-{
-}
+GS_EntitySystem::GS_EntitySystem() = default;
 
 GS_EntitySystem::~GS_EntitySystem()
 {
@@ -102,20 +98,23 @@ void GS_EntitySystem::shutDown()
 	GS_ShootSystem::getInstance()->shutDown();
 	GS_MovingSystem::getInstance()->shutDown();
 	GS_RenderSystem::getInstance()->shutDown();
+	GS_ScrollSystem::getInstance()->shutDown();
 #ifdef _DEBUG
 	DebugDrawSystem::getInstance()->shutDown();
 #endif // _DEBUG
+
+	m_nextId = 0;
 }
 
 size_t GS_EntitySystem::registerEntity()
 {
 	{
 		lock.lock();
-		GS_Entity* newEntity = new GS_Entity( ++m_nextId );
+		GS_Entity* newEntity = new GS_Entity( m_nextId );
 		m_entities.push_back( newEntity );
 		lock.unlock();
 	}
-	return m_nextId;
+	return m_nextId++;
 }
 
 GS_Entity* GS_EntitySystem::getEntityById( size_t _id ) const

@@ -29,12 +29,13 @@ private:
 
 	// jump data
 #ifdef _DEBUG
-	float m_JUMP_FORCE_INIT = 550.0f;
-	float m_GRAVITY = -0.5f;
+	const float m_JUMP_FORCE_INIT = 75.0f;
+	const float m_GRAVITY = -0.2f;
 #else
-	float m_JUMP_FORCE_INIT = 750.0f;
-	float m_GRAVITY = -0.25f;
+	const float m_JUMP_FORCE_INIT = 750.0f;
+	const float m_GRAVITY = -2.55f;
 #endif // _DEBUG
+
 	float m_jumpForce = 0.0f;
 	// flags
 	bool m_isJumping = false;

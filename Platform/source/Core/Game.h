@@ -31,7 +31,7 @@ public:
 	int getJoypadValueX( int id ) const;
 	int getJoypadValueY( int id ) const;
 
-	int getJoypadBtn( int id ) const;
+	bool getJoypadBtn( int id ) const;
 
 	void setLevelClear();
 	void setPlayerDead();

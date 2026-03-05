@@ -2,8 +2,8 @@
 
 int main( int, char** )
 {
-	JobSystem::Initialize();
-
+// 	JobSystem::Initialize();
+// 
 	GS_Game* game = GS_Game::getInstance();
 	if ( !game )
 	{
@@ -28,4 +28,3 @@ int main( int, char** )
 	game->shutDown();
 	return 0;
 }
-

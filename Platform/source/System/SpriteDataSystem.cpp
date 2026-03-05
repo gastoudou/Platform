@@ -12,16 +12,16 @@ GS_SpriteDataSystem::~GS_SpriteDataSystem()
 {
 }
 
-void GS_SpriteDataSystem::loadSprite( const char* _path )
+void GS_SpriteDataSystem::loadSprite( const char* _path, size_t id )
 {
-	m_ids.push_back( GS_ResourceManager::getInstance()->loadSpriteFromFile( _path ) );
+	m_ids[id] = GS_ResourceManager::getInstance()->loadSpriteFromFile( _path );
 }
 
 bool GS_SpriteDataSystem::getSpriteById( size_t _id, size_t& _spriteId ) const
 {
-	if ( !m_ids.empty() && _id >= 0 && _id < static_cast< int >(m_ids.size()) )
+	if ( m_ids.contains( _id ) )
 	{
-		_spriteId = m_ids[ _id ];
+		_spriteId = m_ids.at( _id );
 		return true;
 	}
 	return false;

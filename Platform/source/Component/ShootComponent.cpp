@@ -46,7 +46,7 @@ void GS_ShootComponent::shutDown()
 void GS_ShootComponent::initTimers()
 {
 	m_timer = 0.0f;
-	m_timerLimit = 2.0f + (rand() % 5000) / 1000.0f;
+	m_timerLimit = 5.0f + (rand() % 5000) / 1000.0f;
 }
 
 void GS_ShootComponent::createNewRocket()
@@ -59,7 +59,11 @@ void GS_ShootComponent::createNewRocket()
 	/*char buffer[ 256 ];
 	GetPrivateProfileString( "Move", "SpeedRocket", "150", buffer, 256, ".\\data\\config.ini");
 	const float speed = static_cast< float >( atof( buffer ) );*/
+#ifdef _DEBUG
+	const float speed = 25.0f;
+#else
 	const float speed = 250.0f;
+#endif // _DEBUG
 
 	size_t newId = GS_EntitySystem::getInstance()->registerEntity();
 	GS_Vector2 direction = GS_Vector2( rand() % 10 > 5 ? -1.0f : 1.0f, 0.0f );

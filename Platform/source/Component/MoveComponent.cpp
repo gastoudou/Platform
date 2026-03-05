@@ -29,20 +29,20 @@ void GS_MoveComponent::update( const float _dt )
 
 	switch ( m_type )
 	{
-		case KEYBOARD:
-			updateKeyboard( _dt );
-			break;
-		case PROJECTILE:
-			updateProjectile( _dt );
-			break;
-		case SLIDER:
-			updateSlider( _dt );
-			break;
-		case NONE:
-			updateNone( _dt );
-			break;
-		default:
-			break;
+	case KEYBOARD:
+		updateKeyboard( _dt );
+		break;
+	case PROJECTILE:
+		updateProjectile( _dt );
+		break;
+	case SLIDER:
+		updateSlider( _dt );
+		break;
+	case NONE:
+		updateNone( _dt );
+		break;
+	default:
+		break;
 	}
 	lock.unlock();
 }
@@ -91,7 +91,7 @@ void GS_MoveComponent::updateProjectile( const float _dt )
 		return;
 	}
 	GS_Vector2 newPosition = moveCompo->get_position() + moveCompo->get_direction() * moveCompo->get_speed() * _dt;
-	
+
 	if ( GS_ScrollDataComponent* scrollCompo = GS_ScrollSystem::getInstance()->getComponent( m_id ) )
 	{
 		newPosition.x -= GS_Game::getInstance()->getScroll().x - scrollCompo->get_scroll().x;
@@ -116,23 +116,23 @@ void GS_MoveComponent::updateSlider( const float _dt )
 		moveCompo->set_direction( GS_Vector2( 1.0f, 0.0f ) );
 	}
 
-	GS_ScrollDataComponent* scrollCompo = GS_ScrollSystem::getInstance()->getComponent( m_id );
-	if ( scrollCompo != nullptr )
+	;
+	if ( GS_ScrollDataComponent* scrollCompo = GS_ScrollSystem::getInstance()->getComponent( m_id ) )
 	{
 		GS_Vector2 nextPosition = moveCompo->get_position() + moveCompo->get_direction() * moveCompo->get_speed() * _dt;
 		nextPosition.x += scrollCompo->get_scroll().x;
 
 		// get cells around the entity
-		int idCellLeft = ( static_cast< int >( nextPosition.x ) / k_SPRITE_WIDTH ) + ( static_cast< int >( nextPosition.y ) / k_SPRITE_HEIGHT ) * k_LEVEL_WIDTH + 1;
-		int idCellRight = ( static_cast< int >( moveCompo->get_position().x ) / k_SPRITE_WIDTH ) + ( static_cast< int >( moveCompo->get_position().y ) / k_SPRITE_HEIGHT ) * k_LEVEL_WIDTH - 1;
-		int idCellUnder = ( static_cast< int >( nextPosition.x ) / k_SPRITE_WIDTH ) + ( static_cast< int >( nextPosition.y ) / k_SPRITE_HEIGHT ) * k_LEVEL_WIDTH;
+		const int idCellLeft = (static_cast<int>(nextPosition.x) / k_SPRITE_WIDTH) + (static_cast<int>(nextPosition.y) / k_SPRITE_HEIGHT) * k_LEVEL_WIDTH + 1;
+		const int idCellRight = (static_cast<int>(moveCompo->get_position().x) / k_SPRITE_WIDTH) + (static_cast<int>(moveCompo->get_position().y) / k_SPRITE_HEIGHT) * k_LEVEL_WIDTH - 1;
+		const int idCellUnder = (static_cast<int>(nextPosition.x) / k_SPRITE_WIDTH) + (static_cast<int>(nextPosition.y) / k_SPRITE_HEIGHT) * k_LEVEL_WIDTH;
 
 		// check collisions
-		size_t typeCellLeft = GS_Game::getInstance()->getTile( idCellLeft );
-		size_t typeCellRight = GS_Game::getInstance()->getTile( idCellRight );
-		size_t typeCellUnder = moveCompo->get_direction().x < 0.0f ?
+		const size_t typeCellLeft = GS_Game::getInstance()->getTile( idCellLeft );
+		const size_t typeCellRight = GS_Game::getInstance()->getTile( idCellRight );
+		const size_t typeCellUnder = moveCompo->get_direction().x < 0.0f ?
 			GS_Game::getInstance()->getTile( idCellUnder + k_LEVEL_WIDTH ) :
-			GS_Game::getInstance()->getTile( idCellUnder + k_LEVEL_WIDTH + static_cast< int >( moveCompo->get_direction().x ) );
+			GS_Game::getInstance()->getTile( idCellUnder + k_LEVEL_WIDTH + static_cast<int>( moveCompo->get_direction().x ) );
 
 		// if there's collision, change direction
 		if ( typeCellLeft != 0 || typeCellRight != 0 || typeCellUnder == 0 )
@@ -145,7 +145,8 @@ void GS_MoveComponent::updateSlider( const float _dt )
 			newPosition.x -= GS_Game::getInstance()->getScroll().x - scrollCompo->get_scroll().x;
 			moveCompo->set_position( newPosition );
 		}
-		scrollCompo->update_scroll( /*GS_Game::getInstance()->getScroll().x*/ moveCompo->get_direction() * moveCompo->get_speed() * _dt );
+
+		scrollCompo->update_scroll( GS_Game::getInstance()->getScroll() );
 	}
 }
 
